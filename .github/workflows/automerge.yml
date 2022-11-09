@@ -18,7 +18,18 @@ on:
       - completed
   status: {}
 jobs:
+  autoapprove:
+    runs-on: ubuntu-latest
+    steps:
+      - id: autoapprove
+        name: autoapprove
+        uses: "juliangruber/approve-pull-request-action@v2.0.1"
+        with:
+            github_token: "${{ secrets.GITHUB_TOKEN }}"
+            number: "${{ github.event.issue.number }}"
+
   automerge:
+    needs: [autoapprove]
     runs-on: ubuntu-latest
     steps:
       - id: automerge
