@@ -25,8 +25,8 @@ jobs:
         name: autoapprove
         uses: "juliangruber/approve-pull-request-action@v2.0.1"
         with:
-            github_token: "${{ secrets.GITHUB_TOKEN }}"
-            number: "${{ github.event.issue.number }}"
+            github-token: "${{ secrets.GITHUB_TOKEN }}"
+            number: "${{ github.event.number }}"
 
   automerge:
     needs: [autoapprove]
