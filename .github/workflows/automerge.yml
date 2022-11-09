@@ -19,6 +19,7 @@ on:
   status: {}
 jobs:
   autoapprove:
+    if: ${{ github.event.label.name == 'automerge' }}
     runs-on: ubuntu-latest
     steps:
       - id: autoapprove
