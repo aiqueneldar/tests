@@ -26,4 +26,4 @@ jobs:
         uses: "aiqueneldar/automerge-action@add-blocked-status-as-mergeable"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          LOG: "TRACE"
+          LOG: "DEBUG"
