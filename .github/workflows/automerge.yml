@@ -21,13 +21,12 @@ jobs:
   autoapprove:
     if: ${{ github.event.label.name == 'automerge' }}
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
-      - id: autoapprove
-        name: autoapprove
-        uses: "juliangruber/approve-pull-request-action@v2.0.1"
+      - uses: hmarr/auto-approve-action@v3
         with:
-            github-token: "${{ secrets.GITHUB_TOKEN }}"
-            number: "${{ github.event.number }}"
+          review-message: "Auto approve sync PRs to auto merge them"
 
   automerge:
     needs: [autoapprove]
